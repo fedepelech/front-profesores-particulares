@@ -1,0 +1,10 @@
+.top-page {
+    background-color: rgba(153, 230, 255, 0.712);
+    text-align: center;
+}
+.top-page p {
+    padding: 0;
+    margin: 0;
+    color: darkslateblue;
+    font-size: 14px;
+}

@@ -1,0 +1,7 @@
+.reset-password-text {
+    color: gray;
+    font-size: 11px;
+    display: block;
+    text-decoration: underline;
+    cursor: pointer;
+}

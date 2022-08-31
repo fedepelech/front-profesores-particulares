@@ -1,5 +1,8 @@
 import React, {useState} from 'react'
-import { Navbar, NavbarBrand, NavbarToggler, UncontrolledDropdown, Collapse, Nav, NavItem, NavLink, DropdownToggle, DropdownMenu, DropdownItem, NavbarText } from 'reactstrap'
+import { Navbar, NavbarBrand,  UncontrolledDropdown, Nav, NavItem, NavLink, DropdownToggle, DropdownMenu, DropdownItem, NavbarText } from 'reactstrap'
+import { Login } from '../login';
+
+import './styles.css';
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,34 +11,36 @@ export const Header = () => {
 
   return (
     <div>
-      <Navbar>
-        <NavbarBrand href="/">reactstrap</NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="me-auto" navbar>
-            <NavItem>
-              <NavLink href="/components/">Components</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">
-                GitHub
-              </NavLink>
-            </NavItem>
-            <UncontrolledDropdown nav inNavbar>
+      <Navbar
+        color='light'
+        container={true}
+      >
+        <NavbarBrand href="/">
+          <img
+            alt="logo"
+            src="/logo192.png"
+            style={{
+              height: 40,
+              width: 40
+            }}
+          />
+          derepaso
+        </NavbarBrand>
+        <Nav className=''>
+          <NavItem>
+            <NavLink disabled={true} href="/components/">Components</NavLink>
+          </NavItem>
+          <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
-                Options
+                iniciar sesión
               </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>Option 1</DropdownItem>
-                <DropdownItem>Option 2</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Reset</DropdownItem>
+              <DropdownMenu className='p-2 dropdown-login' end>
+                <Login />
               </DropdownMenu>
             </UncontrolledDropdown>
-          </Nav>
-          <NavbarText>Simple Text</NavbarText>
-        </Collapse>
+        </Nav>
       </Navbar>
     </div>
   );
 }
+//me-auto
