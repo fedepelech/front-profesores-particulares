@@ -18,16 +18,8 @@ export const Banner = () => {
       />
       <CardImgOverlay className="overlay">
         <CardTitle tag="h5" className="card-title">
-          Card Title
+          Buscá tus clases
         </CardTitle>
-        <CardText>
-          This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-        </CardText>
-        <CardText>
-          <small className="text-muted">
-            Last updated 3 mins ago
-          </small>
-        </CardText>
       </CardImgOverlay>
     </Card>
   );

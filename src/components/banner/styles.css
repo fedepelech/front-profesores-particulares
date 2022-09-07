@@ -2,6 +2,8 @@
     background-color: rgba(128, 128, 128, 0.527);
 }
 .card-title {
-    margin-top: 3rem;
+    margin-top: 9rem;
     text-align: center;
+    font-size: 40px;
+    font-family: 'Roboto';
 }
