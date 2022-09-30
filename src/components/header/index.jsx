@@ -1,12 +1,17 @@
 import React, {useState} from 'react'
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Navbar, NavbarBrand,  UncontrolledDropdown, Nav, NavItem, NavLink, DropdownToggle, DropdownMenu, DropdownItem, NavbarText } from 'reactstrap'
+import { Context } from '../../context';
+import { DropdownUser } from '../dropdown-user';
 import { Login } from '../login';
 
-import './styles.css';
+import './styles.scss';
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const navigate = useNavigate();
+  const { user } = useContext(Context);
   const toggle = () => setIsOpen(!isOpen);
 
   return (
@@ -28,14 +33,22 @@ export const Header = () => {
         </NavbarBrand>
         <Nav className=''>
           <NavItem>
-            <NavLink disabled={true} href="/components/">Components</NavLink>
+            {user && user.firstName ? (
+              <NavLink onClick={() => navigate('/new-class')}>
+                Crear una clase
+              </NavLink>
+              ): 
+              <NavLink className="nav-disabled" disabled={true} href="/signup">
+                Aprendé ahora y desde tu casa
+              </NavLink> 
+            }
           </NavItem>
           <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
-                iniciar sesión
+                {user && user.firstName ? `${user.firstName}` : 'iniciar sesión'}
               </DropdownToggle>
               <DropdownMenu className='p-2 dropdown-login' end>
-                <Login />
+                {user && user.firstName ? <DropdownUser /> : <Login />}
               </DropdownMenu>
             </UncontrolledDropdown>
         </Nav>

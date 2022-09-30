@@ -1,0 +1,46 @@
+.class-information {
+    height: 20rem;
+    background-color: rgb(49, 49, 49);
+    .description {
+        padding-top: 5rem;
+        margin-right: 5rem;
+        h2 {
+            color: rgb(255, 246, 230);
+        }
+        .text-description {
+            height: 5.3rem;
+        }
+    }
+    .personal-col {
+        align-items: center;
+        text-align: center;
+        .class-photo {
+            margin-top: 3rem;
+            clip-path: circle();
+            height: 190px;
+        }
+        .text-information {
+            text-decoration: underline;
+            font-weight: bold;
+            color: lightcyan;
+        }
+    }
+}
+.class-content {
+    width: 55%;
+}
+.text-information {
+    color: white;
+    margin-top: 1rem;
+}
+.valoration {
+    margin-top: 1.5rem;
+
+    p {
+        font-size: 12px;
+        margin-top: 7px;
+    }
+}
+.quantity-frequency {
+    font-size: 14px;
+}

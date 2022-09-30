@@ -1,0 +1,42 @@
+.overlay {
+    background-color: rgba(128, 128, 128, 0.527);
+    .input-search {
+        width: 30%;
+        margin: auto;
+        margin-top: 2rem;
+    }
+}
+.card-title {
+    margin-top: 10rem;
+    text-align: center;
+    font-size: 34px;
+}
+.button-search {
+    background-color: rgb(106, 186, 212);
+    border: none;
+    border-left: 1px solid gray;
+}
+
+@media only screen and (max-width: 1600px) {
+    .overlay {
+        .input-search {
+            min-width: 50%;
+            margin: auto;
+            margin-top: 2rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .overlay {
+        .input-search {
+            width: 90%;
+            margin: auto;
+            margin-top: 2rem;
+        }
+    }
+    .card-title {
+        margin-top: 13rem;
+        font-size: 28px;
+    }
+}

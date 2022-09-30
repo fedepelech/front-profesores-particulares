@@ -1,7 +1,7 @@
 import React from "react";
-import { Card, CardImg, CardImgOverlay, CardText, CardTitle } from "reactstrap";
+import { Button, Card, CardImg, CardImgOverlay, CardText, CardTitle, Input, InputGroup, Label } from "reactstrap";
 
-import './styles.css';
+import './styles.scss';
 
 export const Banner = () => {
   return (
@@ -18,8 +18,17 @@ export const Banner = () => {
       />
       <CardImgOverlay className="overlay">
         <CardTitle tag="h5" className="card-title">
-          Buscá tus clases
+          Clases para todos los niveles<br />
+          y de todas las temáticas
         </CardTitle>
+          <InputGroup className="input-search">
+            <Input
+              placeholder="¿Qué querés repasar?"
+            />
+            <Button className="button-search">
+              Buscar
+            </Button>
+          </InputGroup>
       </CardImgOverlay>
     </Card>
   );

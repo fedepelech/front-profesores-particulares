@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "title": "Algébra 2",
+        "teacher": "Ricardo Lopéz",
+        "score": 3.7,
+        "quantityValorations": 16,
+        "price": "3.999,00",
+        "description": "Curso que te ayudará a entender las funciones trigonometricas, la formula resolvente, gráficar en 3D y los limites."
+    },
+    {
+        "id": 2,
+        "title": "Historia Argentina",
+        "teacher": "Juan Cruz Lococo",
+        "score": 4.2,
+        "quantityValorations": 9,
+        "price": "2.500,00",
+        "description": "Este curso abarca desde la década infame hasta la crisis socioeconómica del 2001."
+    },
+    {
+        "id": 3,
+        "title": "Invertir en la bolsa",
+        "teacher": "Esteban Garrido",
+        "score": 2.3,
+        "quantityValorations": 2,
+        "price": "5.799,99",
+        "description": "En este curso introductorio, doy un puntapie a los diferentes perfiles de inversor que existen, a un cambio de mentalidad del dinero y al análisis de patrones para tratar de predecir los próximos movimientos del mercado."
+    },
+    {
+        "id": 4,
+        "title": "Inglés Nivel A1",
+        "teacher": "Paola Velazquez",
+        "score": 4.9,
+        "quantityValorations": 322,
+        "price": "4.350,00",
+        "description": "¿Querés aprender primero una base gramatical para luego perfeccionar el listening-speaking? Este curso es ideal para tí."
+    },
+    {
+        "id": 5,
+        "title": "Introducción a la química",
+        "teacher": "Monica Gutierrez",
+        "score": 4.0,
+        "quantityValorations": 89,
+        "price": "3.000,00",
+        "description": "En este curso, veremos que es la química y como nos repercute en el día a día. Se verá de forma integra la tabla periódica y las formulas más comunes."
+    },
+    {
+        "id": 6,
+        "title": "Alemán - Avanzado",
+        "teacher": "Carlos Neuer",
+        "score": 3.6,
+        "quantityValorations": 147,
+        "price": "6.899,99",
+        "description": "El contenido de este curso esta orientado para aquellas personas cuyos conocimientos en alemán sean avanzados y quieran refinar unos ultimos detalles sobre todo orales para sonar casi como un hablante nativo."
+    },
+    {
+        "id": 7,
+        "title": "Física I",
+        "teacher": "Pablo Estigarribia",
+        "score": 4.8,
+        "quantityValorations": 19,
+        "price": "3.500,00",
+        "description": "En el curso se abarcarán todas los conceptos y formulas con respecto al Movimiento Rectilineo Uniforme."
+    },
+    {
+        "id": 8,
+        "title": "Teleinformática y Redes",
+        "teacher": "Vanesa Golffeisthen",
+        "score": 3.9,
+        "quantityValorations": 2,
+        "price": "4.000,00",
+        "description": "El contenido del curso será abarcar los diferentes satélites (según la capa atmosférica en la que se encuentran), el modelo OSI y el protócolo TCP/IP."
+    },
+    {
+        "id": 9,
+        "title": "Introd. a la Programación",
+        "teacher": "Laura Sanchez",
+        "score": 4.7,
+        "quantityValorations": 878,
+        "price": "2.100,00",
+        "description": "Que es programar? Conceptos y primeros ejercicios."
+    },
+    {
+        "id": 10,
+        "title": "Estadística",
+        "teacher": "Martin Herrera",
+        "score": 3.3,
+        "quantityValorations": 11,
+        "price": "5.500,00",
+        "description": "En este curso se proveerá el contenido para que el alumno comprenda desde cero como analizar una problemática y sacar conclusiones en base a la repetición de sucesos."
+    }
+]
