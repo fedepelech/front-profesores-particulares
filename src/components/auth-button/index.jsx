@@ -17,7 +17,16 @@ export const AuthButton = ({ type, setSelected }) => {
           width: "30%",
         }}
       >
-        <img alt="Sample" src="https://picsum.photos/300/200" />
+        <div className="container-img">
+          <img
+            alt="Sample"
+            src={`/assets/${ type === 'Profesor' ? "teacher-icon.png" : "student-icon.png"}`}
+            style={{
+              height: 270,
+              width: 250
+            }}
+            />
+        </div>
         <CardBody>
           <CardTitle tag="h5">{type}</CardTitle>
           {/* <CardText>

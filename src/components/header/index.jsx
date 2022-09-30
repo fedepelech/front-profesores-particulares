@@ -23,10 +23,11 @@ export const Header = () => {
         <NavbarBrand href="/">
           <img
             alt="logo"
-            src="/logo192.png"
+            src="/assets/logo.png"
+            className='mx-2'
             style={{
               height: 40,
-              width: 40
+              width: 50
             }}
           />
           derepaso
