@@ -16,9 +16,9 @@ import {
 
 import "./styles.scss";
 
-export const ClassCard = ({ classInformation }) => {
+export const ClassCard = ({ classInformation, idx }) => {
   const navigate = useNavigate();
-  const {id, title, teacher, score, quantityValorations, price, description} = classInformation;
+  const {name, teacher, score, quantityValorations, cost, description} = classInformation;
   const [showPopover, setShowPopover] = useState(false);
 
   const toggle = () => setShowPopover(!showPopover);
@@ -45,24 +45,24 @@ export const ClassCard = ({ classInformation }) => {
     <>
       <div
         className="card-class"
-        id={`ClassInformation${id}`}
+        id={`ClassInformation${idx}`}
         onMouseOver={onHover}
         onMouseLeave={onHoverLeave}
         onClick={() => navigate('/class/id/detail', {state: {classInformation}})}>
         <Card color="light">
           <CardImg
             alt="Card image cap"
-            src={`https://picsum.photos/318/${180 + id}`}
+            src={`https://picsum.photos/318/${180 + idx}`}
             top
             width="100%"
           />
           <CardBody>
             <CardTitle tag="h6" className="mt-0">
-              {title}
+              {name}
             </CardTitle>
             <CardSubtitle className="mb-2 text-muted class-teacher">
               <img src="/assets/student.png" className="icon-teacher" alt="icon-teacher" />
-              {teacher}
+              {`${teacher.firstName} ${teacher.surName}`}
             </CardSubtitle>
             <Row>
               <Col md={10} xs={9}>
@@ -74,7 +74,7 @@ export const ClassCard = ({ classInformation }) => {
                 <span className="quantity-valorations">({quantityValorations})</span>
               </Col>
             </Row>
-            <p className="price-class">${price}</p>
+            <p className="price-class">${cost}</p>
             {/* <Button>Button</Button> */}
           </CardBody>
         </Card>
@@ -82,10 +82,10 @@ export const ClassCard = ({ classInformation }) => {
       <Popover
           placement="right"
           isOpen={showPopover}
-          target={`ClassInformation${id}`}
+          target={`ClassInformation${idx}`}
           toggle={toggle}
         >
-        <PopoverHeader>{title}</PopoverHeader>
+        <PopoverHeader>{name}</PopoverHeader>
         <PopoverBody>
           {description}
         </PopoverBody>

@@ -1,10 +1,12 @@
+.content-search {
+    width: 30%;
+    margin: auto;
+}
 .overlay {
     background-color: rgba(128, 128, 128, 0.527);
-    .input-search {
-        width: 30%;
-        margin: auto;
-        margin-top: 2rem;
-    }
+}
+.input-search {
+    margin-top: 2rem;
 }
 .card-title {
     margin-top: 10rem;
@@ -16,7 +18,17 @@
     border: none;
     border-left: 1px solid gray;
 }
-
+.advanced-text {
+    margin: auto;
+    margin-top: 0px;
+    cursor: pointer;
+}
+.labels-advanced {
+    color: darkgray;
+}
+.close-span {
+    color: black ;
+}
 @media only screen and (max-width: 1600px) {
     .overlay {
         .input-search {
@@ -24,6 +36,10 @@
             margin: auto;
             margin-top: 2rem;
         }
+    }
+    .advanced-text {
+        width: 70%;
+        margin: auto;
     }
 }
 
@@ -38,5 +54,8 @@
     .card-title {
         margin-top: 13rem;
         font-size: 28px;
+    }
+    .advanced-text {
+        width: 90%;
     }
 }

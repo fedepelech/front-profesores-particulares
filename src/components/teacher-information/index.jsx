@@ -3,12 +3,10 @@ import { useLocation } from 'react-router-dom';
 
 import './styles.scss';
 
-import teachers from './../../../src/data/teachers-mock.json';
-
 export const TeacherInformation = () => {
   const {state} = useLocation();
   const {classInformation} = state;
-  const teacher = teachers.find((teacher) => (`${teacher.firstName} ${teacher.surName}`) === classInformation.teacher);
+  const {teacher} = classInformation;
   return (
     <div className='section-teacher-information'>
       <div className='section-content'>

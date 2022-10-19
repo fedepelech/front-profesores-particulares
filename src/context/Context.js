@@ -4,6 +4,7 @@ export const Context = React.createContext();
 
 export const ContextProvider = ({ children }) => {
     const [user, setUser] = useState({
+        id: '',
         firstName: '',
         surName: '',
         email: '',

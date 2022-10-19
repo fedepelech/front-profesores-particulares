@@ -3,30 +3,43 @@ import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 
 import './styles.scss';
 
-import teachers from './../../../src/data/teachers-mock.json';
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../../context";
+import { loginService } from "../../services/auth";
+import jwtDecode from "jwt-decode";
 
 export const Login = () => {
   const [emailUser, setEmailUser] = useState('');
+  const [password, setPassword] = useState('');
   const [userError, setUserError] = useState(false);
+  const [dataError, setDataError] = useState(false);
   const navigate = useNavigate();
   const { setUser } = useContext(Context);
+
   const login = () => {
     setUserError(false);
-    const teacher = teachers.find((teacher) => teacher.email === emailUser);
-    if(!teacher) {
+    if(!emailUser || !password) {
       setUserError(true);
       return;
     }
-    setUser({
-      firstName: teacher.firstName,
-      surName: teacher.surName,
-      email: teacher.email,
-      role: 'teacher'
-    })
-    navigate('/profile');
+    loginService(emailUser, password)
+      .then((data) => {
+        localStorage.setItem('token', data.token);
+        const decoded = jwtDecode(data.token);
+        console.log('decoded: ', decoded);
+        setUser({
+          id: decoded.id,
+          firstName: decoded.firstName,
+          surName: decoded.surName, 
+          email: decoded.email,
+          role: decoded.role 
+        });
+        navigate('/profile');
+      })
+      .catch((err) => {
+        setDataError(true);
+      })
   }
 
   return (
@@ -48,6 +61,7 @@ export const Login = () => {
             Contraseña
           </Label>
           <Input
+            onChange={(e) => setPassword(e.target.value)}
             id="examplePassword"
             name="password"
             placeholder="Contraseña"
@@ -61,7 +75,8 @@ export const Login = () => {
         >
           Reestablecer contraseña
         </span>
-        {userError && <span className="reset-password-text error-text">No existe este usuario</span>}
+        {userError && <span className="reset-password-text error-text">Datos incompletos</span>}
+        {dataError && <span className="reset-password-text error-text">Datos inválidos</span>}
       </Form>
   );
 };

@@ -7,6 +7,7 @@ import './style.scss';
 export const ClassInformation = () => {
   const {state} = useLocation();
   const {classInformation} = state;
+  console.log(classInformation);
   const colorProgressBar = (score) => {
     if(score < 2.5) {
       return 'danger';
@@ -28,7 +29,7 @@ export const ClassInformation = () => {
             <Row>
                 <Col md={8}>
                     <div className='description'>
-                        <h2>{classInformation.title}</h2>
+                        <h2>{classInformation.name}</h2>
                         <div className='text-description'>
                           <p className='text-information'>{classInformation.description}</p>
                         </div>
@@ -56,7 +57,7 @@ export const ClassInformation = () => {
                       className='class-photo'
                       alt='profile'
                     />
-                    <p className='text-information'>{classInformation.teacher}</p>
+                    <p className='text-information'>{`${classInformation.teacher.firstName} ${classInformation.teacher.surName}`}</p>
                   </div>
                 </Col>
             </Row>
