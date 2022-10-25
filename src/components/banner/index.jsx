@@ -1,13 +1,51 @@
 import React from "react";
 import { useState } from "react";
 import { Button, Card, CardBody, CardImg, CardImgOverlay, CardTitle, Col, Collapse, Input, InputGroup, Label, Row } from "reactstrap";
+import { getClassesWithFilters } from "../../services/class";
 
 import './styles.scss';
 
-export const Banner = () => {
+export const Banner = ({ setClasses, setHasSearch }) => {
   const [collapse, setCollapse] = useState(false);
   const [normalSearch, setNormalSearch] = useState('');
+  const [filters, setFilters] = useState({
+    subject: null,
+    grupal: null,
+    frequency: null,
+    calification: null
+  })
+  const [error, setError] = useState(false);
+
   const toggle = () => setCollapse(!collapse);
+
+  const setCalification = (newCalification) => {
+    console.log('newCalification: ', newCalification);
+    if(newCalification < 1 ) {
+      setError(true);
+      setFilters({ ...filters, calification: 1});
+      return;
+    }
+    if(newCalification > 5 ) {
+      setError(true);
+      setFilters({ ...filters, calification: 5});
+      return;
+    }
+    setFilters({ ...filters, calification: Number(newCalification)});
+  }
+
+  const getFilteredClasses = () => { 
+    let filtersObject = {};
+    if(!collapse) {
+      filtersObject.name = normalSearch;
+    } else {
+      filtersObject = filters;
+    }
+    getClassesWithFilters({ filters: filtersObject})
+      .then((data) => {
+        setHasSearch(true)
+        setClasses(data);
+      })
+  }
 
   return (
     <Card inverse>
@@ -34,7 +72,7 @@ export const Banner = () => {
                 onChange={(e) => setNormalSearch(e.target.value)}
                 value={collapse ? '' : normalSearch}
               />
-              <Button className="button-search">
+              <Button className="button-search" onClick={getFilteredClasses}>
                 Buscar
               </Button>
           </InputGroup>
@@ -46,28 +84,32 @@ export const Banner = () => {
                   <Row>
                     <Col md={3}>
                       <Label for="materia" className="labels-advanced">Materia</Label>
-                      <Input id="materia" placeholder="Materia" />
+                      <Input id="materia" placeholder="Materia" onChange={(e) => setFilters({ ...filters, subject: e.target.value})}/>
                     </Col>
                     <Col md={3}>
                       <Label for="tipo-select" className="labels-advanced">Tipo</Label>
-                      <Input id="tipo-select" name="tipo-select" type="select">
-                        <option>Ambas</option>
-                        <option>Individual</option>
-                        <option>Grupal  </option>
+                      <Input id="tipo-select" name="tipo-select" type="select" onChange={(e) => setFilters({ ...filters, grupal: e.target.value})}>
+                        <option value="">Ambas</option>
+                        <option value="Individual">Individual</option>
+                        <option value="Grupal">Grupal</option>
                       </Input>
                     </Col>
                     <Col md={3}>
                       <Label for="frequency-select" className="labels-advanced">Frecuencia</Label>
-                      <Input id="frequency-select" name="frequency-select" type="select">
-                        <option>Cualquiera</option>
-                        <option>Única</option>
-                        <option>Semanal</option>
-                        <option>Mensual</option>
+                      <Input id="frequency-select" name="frequency-select" type="select" onChange={(e) => setFilters({ ...filters, frequency: e.target.value})}>
+                        <option value="">Cualquiera</option>
+                        <option value="Única">Única</option>
+                        <option value="Semanal">Semanal</option>
+                        <option value="Mensual">Mensual</option>
                       </Input>
                     </Col>
                     <Col md={3}>
                       <Label for="materia" className="labels-advanced">Mínima Calif.</Label>
-                      <Input id="materia" placeholder="Entre 1 y 5" />
+                      <Input
+                        id="materia"
+                        placeholder="Entre 1 y 5"
+                        onChange={(e) => setCalification(e.target.value)}
+                        value={filters.calification ? filters.calification : ''} />
                     </Col>
                   </Row>
                 </CardBody>
