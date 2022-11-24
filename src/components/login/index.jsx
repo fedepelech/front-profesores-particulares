@@ -7,7 +7,6 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../../context";
 import { loginService } from "../../services/auth";
-import jwtDecode from "jwt-decode";
 
 export const Login = () => {
   const [emailUser, setEmailUser] = useState('');
@@ -26,14 +25,13 @@ export const Login = () => {
     loginService(emailUser, password)
       .then((data) => {
         localStorage.setItem('token', data.token);
-        const decoded = jwtDecode(data.token);
-        console.log('decoded: ', decoded);
         setUser({
-          id: decoded.id,
-          firstName: decoded.firstName,
-          surName: decoded.surName, 
-          email: decoded.email,
-          role: decoded.role 
+          id: data.user._id,
+          firstName: data.user.firstName,
+          surName: data.user.surName, 
+          email: data.user.email,
+          role: data.user.role,
+          subscribedClasses: data.user.classes
         });
         navigate('/profile');
       })

@@ -34,7 +34,7 @@ export const Header = () => {
         </NavbarBrand>
         <Nav className=''>
           <NavItem>
-            {user && user.firstName ? (
+            {user && user?.role === 'teacher' ? (
               <NavLink onClick={() => navigate('/new-class')}>
                 Crear una clase
               </NavLink>

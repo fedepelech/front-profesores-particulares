@@ -1,13 +1,26 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Container } from "reactstrap";
-
-import comments from './../../../src/data/comments-mock.json';
+import { createComment } from "../../services/class";
 
 import './styles.scss';
 
 export const SectionComment = () => {
+  const {state} = useLocation();
+  const {classInformation} = state;
   const [newComment, setNewComment] = useState('');
   const [commentSent, setCommentSent] = useState(false);
+  const [comments, setComments] = useState(classInformation?.comments);
+
+  const createNewComment = () => {
+    if(!newComment) {
+      return;
+    }
+    createComment(classInformation.id, newComment)
+      .then((commentcreated) => {
+        console.log('comentario creado con exito', commentcreated);
+      })
+  }
 
   return (
     <Container className="comment-container">
@@ -42,7 +55,7 @@ export const SectionComment = () => {
               <button
                 className="button-triangle"
                 type="button"
-                onClick={() => null}
+                onClick={createNewComment}
               >
                 <img src="/assets/Triangle.svg" alt="triangle" />
               </button>

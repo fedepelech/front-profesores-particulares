@@ -16,11 +16,14 @@ import {
 
 import "./styles.scss";
 
+const API_IMAGE_URL = process.env.REACT_APP_API_IMAGE_URL;
+
 export const ClassCard = ({ classInformation, idx }) => {
   const navigate = useNavigate();
   const {name, teacher, score, quantityValorations, cost, description} = classInformation;
   const [showPopover, setShowPopover] = useState(false);
-
+  const imgSrc = classInformation?.file && classInformation.file.path ? `${API_IMAGE_URL}${classInformation.file.path}` : `https://picsum.photos/318/${180 + idx}`;
+  
   const toggle = () => setShowPopover(!showPopover);
 
   const onHover = () => setShowPopover(true);
@@ -48,13 +51,15 @@ export const ClassCard = ({ classInformation, idx }) => {
         id={`ClassInformation${idx}`}
         onMouseOver={onHover}
         onMouseLeave={onHoverLeave}
-        onClick={() => navigate('/class/id/detail', {state: {classInformation}})}>
+        onClick={() => navigate('/class/detail', {state: {classInformation}})}>
         <Card color="light">
           <CardImg
             alt="Card image cap"
-            src={`https://picsum.photos/318/${180 + idx}`}
+            // src={``}
+            src={imgSrc}
             top
             width="100%"
+            height="200rem"
           />
           <CardBody>
             <CardTitle tag="h6" className="mt-0">
@@ -66,9 +71,10 @@ export const ClassCard = ({ classInformation, idx }) => {
             </CardSubtitle>
             <Row>
               <Col md={10} xs={9}>
+                { quantityValorations === 0 ? <span className="no-valorations-text">No tiene valoraciones</span> : 
                 <Progress className="mt-2 mb-1" max="5" value={score} color={colorProgressBar(score)}>
                   {score}/5
-                </Progress>
+                </Progress>}
               </Col>
               <Col md={2} xs={3} className="p-0">
                 <span className="quantity-valorations">({quantityValorations})</span>

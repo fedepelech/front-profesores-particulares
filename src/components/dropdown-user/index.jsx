@@ -10,18 +10,19 @@ export const DropdownUser = () => {
   const navigate = useNavigate();
   const { setUser } = useContext(Context);
   const logout = () => {
+    localStorage.setItem('token', '');
     setUser({
       firstName: '',
       surName: '',
       email: '',
-      role: ''
+      role: '',
+      subscribedClasses: []
     });
     navigate('/');    
   }
   return (
     <List>
         <li onClick={() => navigate('/profile')}>Mi perfil</li>
-        <li>Mis clases</li>
         <li onClick={logout}>Cerrar sesión</li>
     </List>
   )

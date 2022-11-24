@@ -7,9 +7,15 @@
 }
 .container-sub-button {
     height: 2.8rem;
+    display: flex;
+    justify-content: space-between;
+    width: 15rem;
 }
 .suscription-button {
     border: none;
     border-radius: 0px;
     color: white;
+}
+.valorations {
+    font-size: 12px;
 }

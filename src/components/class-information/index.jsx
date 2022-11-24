@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom';
 import { Col, Container, Progress, Row } from 'reactstrap'
+import { Context } from '../../context';
 
 import './style.scss';
 
 export const ClassInformation = () => {
   const {state} = useLocation();
   const {classInformation} = state;
-  console.log(classInformation);
+  
   const colorProgressBar = (score) => {
     if(score < 2.5) {
       return 'danger';

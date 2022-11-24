@@ -19,7 +19,6 @@ export const Banner = ({ setClasses, setHasSearch }) => {
   const toggle = () => setCollapse(!collapse);
 
   const setCalification = (newCalification) => {
-    console.log('newCalification: ', newCalification);
     if(newCalification < 1 ) {
       setError(true);
       setFilters({ ...filters, calification: 1});

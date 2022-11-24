@@ -11,3 +11,12 @@ export function loginService(email, password) {
   })
     .then((resp) => resp.data);
 }
+
+export function signupService(information) {
+  return axios({
+    method: 'post',
+    data: information,
+    url: `${process.env.REACT_APP_API_URL}/signup`,
+  })
+    .then((resp) => resp.data);
+}

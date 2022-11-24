@@ -8,7 +8,8 @@ export const ContextProvider = ({ children }) => {
         firstName: '',
         surName: '',
         email: '',
-        role: ''
+        role: '',
+        subscribedClasses: []
     });
 
     const appState = {

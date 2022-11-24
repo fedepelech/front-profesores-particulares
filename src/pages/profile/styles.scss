@@ -1,0 +1,21 @@
+.explore-classes {
+    color: gray;
+    cursor: pointer;
+}
+
+.container-profile {
+    width: 65%;
+    display: block;
+}
+
+@media only screen and (max-width: 1600px) {
+    .container-profile {
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .container-profile {
+        width: 85%;
+    }
+}
