@@ -110,3 +110,51 @@ export function createClass(classToCreate) {
   })
     .then((resp) => resp.data);
 }
+
+export function createSuscriptionSvc(data, classId) {
+  return axios({
+    method: 'post',
+    data: data,
+    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+    url: `${process.env.REACT_APP_API_URL}/class/${classId}/suscription`,
+  })
+    .then((resp) => resp.data);
+}
+
+export function getSuscriptions(classId) {
+  return axios({
+    method: 'get',
+    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+    url: `${process.env.REACT_APP_API_URL}/class/${classId}/suscriptions`,
+  })
+    .then((resp) => resp.data);
+}
+
+export function acceptSuscriptionClass(subId) {
+  return axios({
+    method: 'post',
+    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+    url: `${process.env.REACT_APP_API_URL}/class/${subId}/accept-suscription`,
+  })
+    .then((resp) => resp.data);
+}
+
+export function cancelSuscriptionClass(subId, status) {
+  return axios({
+    method: 'post',
+    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+    url: `${process.env.REACT_APP_API_URL}/suscriptions/change-status/${subId}`,
+    data: {status},
+  })
+    .then((resp) => resp.data);
+}
+
+export function createOrUpdateValoration(valoration, classId) {
+  return axios({
+    method: 'post',
+    data: {valoration},
+    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+    url: `${process.env.REACT_APP_API_URL}/class/${classId}/valoration`,
+  })
+    .then((resp) => resp.data);
+}

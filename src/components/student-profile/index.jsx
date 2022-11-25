@@ -20,10 +20,11 @@ export const StudentProfile = ({ studentId = null}) => {
   const getData = () => {
     return Promise.all([getStudentInformation(studentId), getClassesByUser()])
       .then((data) => {
+        console.log('data: ', data);
         return {
           academic: data[0].academic,
           personal: data[0].personal,
-          classes: data[1]
+          classes: data[1] 
         };
       })
   }
@@ -59,7 +60,7 @@ export const StudentProfile = ({ studentId = null}) => {
               Clases contratadas
             </h4>
             <div className="classes mt-3">
-              {  classes.map((classInformation, index) => <ClassCard classInformation={classInformation} idx={index} />)}
+              {  classes.map(({ classTotal, valoration }, index) => <ClassCard classInformation={classTotal} idx={index} valoration={valoration} />)}
             </div>
           </>
         ) : 

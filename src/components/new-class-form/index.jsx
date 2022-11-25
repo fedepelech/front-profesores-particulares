@@ -157,7 +157,7 @@ export const NewClassForm = () => {
       <UploadFile setFileId={setFileId} />
       <Button
         block={true}
-        className="button-create"
+        className="button-create mt-4"
         onClick={create}
       >
         Crear clase

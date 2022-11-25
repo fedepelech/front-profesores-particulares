@@ -9,6 +9,7 @@ import { TopPage } from './components/top-page';
 import { Context } from './context';
 import { ClassDetailPage } from './pages/class-detail';
 import { ClassEdit } from './pages/class-edit';
+import { ClassInscriptions } from './pages/class-inscriptions';
 import { Home } from './pages/home';
 import { NewClass } from './pages/new-class';
 import { Profile } from './pages/profile';
@@ -40,8 +41,8 @@ function App() {
         <Route exact path="/signup" element={<Signup />} />
         <Route exact path="/profile" element={<Profile />} />
         <Route exact path="/new-class" element={<NewClass />} />
-        {/* <Route exact path="/class/1/suscription" element={<NewClass />} /> */}
         <Route exact path="/class/edit" element={<ClassEdit />} />
+        <Route exact path="/class/inscriptions" element={<ClassInscriptions />} />
         <Route exact path="/class/detail" element={<ClassDetailPage />} />
       </Routes>
       <Footer />

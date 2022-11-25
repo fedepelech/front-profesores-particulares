@@ -18,7 +18,7 @@ import "./styles.scss";
 
 const API_IMAGE_URL = process.env.REACT_APP_API_IMAGE_URL;
 
-export const ClassCard = ({ classInformation, idx }) => {
+export const ClassCard = ({ classInformation, idx, valoration = null }) => {
   const navigate = useNavigate();
   const {name, teacher, score, quantityValorations, cost, description} = classInformation;
   const [showPopover, setShowPopover] = useState(false);
@@ -51,7 +51,7 @@ export const ClassCard = ({ classInformation, idx }) => {
         id={`ClassInformation${idx}`}
         onMouseOver={onHover}
         onMouseLeave={onHoverLeave}
-        onClick={() => navigate('/class/detail', {state: {classInformation}})}>
+        onClick={() => navigate('/class/detail', {state: {classInformation, valoration}})}>
         <Card color="light">
           <CardImg
             alt="Card image cap"

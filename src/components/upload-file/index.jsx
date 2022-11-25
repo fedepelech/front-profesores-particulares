@@ -41,7 +41,6 @@ export default function UploadFile({ setFileId }) {
           <span>{error ? "Error to upload file" : file}</span>
         </label>
       </div>
-      <br />
       <h3 className="file-format-supported">
         Archivos soportados: PDF, JPG, JPEG, PNG, SVG (max 5mb)
       </h3>
