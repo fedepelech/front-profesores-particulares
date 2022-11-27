@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row } from "reactstrap";
-import { getClasses } from "../../services/class";
 import { ClassCard } from "../class-card";
-
-import classes from './../../../src/data/classes-mock.json';
 
 import './styles.scss';
 

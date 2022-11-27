@@ -78,7 +78,23 @@ export function createComment(classId, content) {
     }
   })
     .then((resp) => {
-      console.log(resp.data);
+      return resp.data;
+    });
+}
+
+export function statusComment(commentId, classId, status, reasonBlocked = '') {
+  return axios({
+    method: 'post',
+    url: `${process.env.REACT_APP_API_URL}/class/${classId}/status-comment`,
+    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+    data: {
+      status,
+      commentId,
+      reasonBlocked
+    }
+  })
+    .then((resp) => {
+      return resp.data;
     });
 }
 

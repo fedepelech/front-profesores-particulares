@@ -12,6 +12,7 @@ import './styles.scss';
 export const ClassDetailPage = () => {
   const {state} = useLocation();
   const {classInformation} = state;
+  console.log('classInformation: ', classInformation);
   const {teacher} = classInformation;
 
   return (

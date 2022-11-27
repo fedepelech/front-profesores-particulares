@@ -10,7 +10,6 @@ export const Home = () => {
   useEffect(() => {
     getClasses()
       .then((data) => {
-        console.log('data: ', data)
         setClasses(data);
       })
   }, [])

@@ -13,6 +13,7 @@ import { ClassInscriptions } from './pages/class-inscriptions';
 import { Home } from './pages/home';
 import { NewClass } from './pages/new-class';
 import { Profile } from './pages/profile';
+import { ResetPasswordPage } from './pages/reset-password';
 import { Signup } from './pages/signup';
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
         <Route exact path="/profile" element={<Profile />} />
         <Route exact path="/new-class" element={<NewClass />} />
         <Route exact path="/class/edit" element={<ClassEdit />} />
+        <Route exact path="/reset-password" element={<ResetPasswordPage />} />
         <Route exact path="/class/inscriptions" element={<ClassInscriptions />} />
         <Route exact path="/class/detail" element={<ClassDetailPage />} />
       </Routes>

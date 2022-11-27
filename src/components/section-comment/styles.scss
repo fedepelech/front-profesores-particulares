@@ -37,10 +37,18 @@
   overflow-y: scroll;
 
   
-
   span{
     color: #6d6d6d;
     font-weight: 500;
+  }
+  
+  .row-button-comment {
+    align-items: flex-end;
+    width: 100%;
+
+    .option-comment {
+      cursor: pointer;
+    }
   }
 
   p {
