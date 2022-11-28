@@ -29,3 +29,9 @@
     color: red;
     font-size: 11px;
 }
+
+@media only screen and (max-width: 1600px) {
+    .container-sub-button {
+        justify-content: center;
+    }
+}

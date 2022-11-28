@@ -49,7 +49,6 @@ export const InscriptionsAccordeon = ({ classInformation = null }) => {
 
   useEffect(() => {
     getSuscriptions(classInformation?._id).then((suscriptions) => {
-      console.log("suscriptions: ", suscriptions);
       setPendings(suscriptions.pending);
       setAccepts(suscriptions.accepted);
       setFinished(suscriptions.finished);

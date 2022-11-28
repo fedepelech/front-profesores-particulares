@@ -22,8 +22,6 @@ export const NewClassForm = () => {
 
   const create = () => {
     setError(false);
-    console.log(fileId);
-    console.log(name, subject, cost, quantityClasses, frequency, type, description);
     if(!name || !subject || !cost || !quantityClasses || !frequency || !type || !description) {
       setError(true);
       return;

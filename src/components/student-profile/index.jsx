@@ -20,7 +20,6 @@ export const StudentProfile = ({ studentId = null}) => {
   const getData = () => {
     return Promise.all([getStudentInformation(studentId), getClassesByUser()])
       .then((data) => {
-        console.log('data: ', data);
         return {
           academic: data[0].academic,
           personal: data[0].personal,

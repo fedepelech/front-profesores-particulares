@@ -89,7 +89,6 @@ export const SectionComment = () => {
                             {" "}
                           </span>
                         </p>
-                        {console.log(message)}
                         <p>{message.content}</p>
                       </Col>
                       <Col md={3}>

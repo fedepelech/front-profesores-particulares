@@ -63,8 +63,7 @@ export const SuscriptionRow = () => {
       description
     }
     createSuscriptionSvc(data, classInformation?._id)
-      .then((resp) => {
-        console.log('resp: ', resp);
+      .then(() => {
         setShowContent(null);
         alert('Inscripción solicitada con éxito.');
         navigate('/');

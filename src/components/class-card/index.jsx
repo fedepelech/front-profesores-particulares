@@ -81,7 +81,6 @@ export const ClassCard = ({ classInformation, idx, valoration = null }) => {
               </Col>
             </Row>
             <p className="price-class">${cost}</p>
-            {/* <Button>Button</Button> */}
           </CardBody>
         </Card>
       </div>

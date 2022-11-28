@@ -29,9 +29,6 @@ export const AuthButton = ({ type, setSelected }) => {
         </div>
         <CardBody>
           <CardTitle tag="h5">{type}</CardTitle>
-          {/* <CardText>
-            
-          </CardText> */}
         </CardBody>
       </Card>
   );

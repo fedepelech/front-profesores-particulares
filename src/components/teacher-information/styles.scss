@@ -9,3 +9,9 @@
 .information-text {
     font-weight: bolder;
 }
+
+@media only screen and (max-width: 1600px) {
+    .section-teacher-information {
+        height: auto;
+    }
+}
